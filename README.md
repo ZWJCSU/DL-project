@@ -43,23 +43,25 @@ If you do not need AMP to accelerate training , just remove this flag.
 # extend of DETR
 
 - 1.backbone
- - change lr for projection layers
- - add backbone modifications for returning multi-scale feature maps
+  - change lr for projection layers
+  - add backbone modifications for returning multi-scale feature maps
 
 - 2.attention
- - add Multi-scale Deformabe Attention Module
- - integrate MS-Deformable-Attention into DETR architecture
- - modify transfomer's implementation to be adapted to Deformable-Attention
- - add image mask to MS-Deformable-Attention
+  - add Multi-scale Deformabe Attention Module
+  - integrate MS-Deformable-Attention into DETR architecture
+  - modify transfomer's implementation to be adapted to Deformable-Attention
+  - add image mask to MS-Deformable-Attention
 
 - 3.loss
- - add focal loss for classification
+  - add focal loss for classification
 
 - 4.optimizer
- - add adam for the optimizer
+  - add adam for the optimizer
 
 - 5.speed up
- - add AMP
- - add Prefetch DataLoader
+  - add AMP
+  - add Prefetch DataLoader
 
-- 6.
+- 6.notebook
+  - add finetuning notkbook
+  - make finetuing dataset
