@@ -1,11 +1,11 @@
-[**Deformable-DETR**](http://arxiv.org/abs/2010.04159): Deformable Transformers for End-to-End Object Detection
-
+DL project
 
 # Deformable-DETR
 
-This an implementation of Deformable-DETR. Codes are based on [DETR](https://github.com/facebookresearch/detr) project.
-My code is inspired by his/her [work]( https://github.com/Windaway/Deformable-Attention-for-Deformable-DETR/blob/main/DFMAtt.py). Many thanks.
-
+This an implementation of Deformable-DETR. 
+reference Codes are based on [DETR](https://github.com/facebookresearch/detr) project.
+[Deformable attention](https://github.com/Windaway/Deformable-Attention-for-Deformable-DETR/blob/main/DFMAtt.py)
+[DETR finetune notebook](https://github.com/woctezuma/finetune-detr)
 # Preparation
 
 For DETR stuffs, etc. data preparation, evaluation, and others , please refer to 
@@ -33,27 +33,33 @@ python main.py
 --no_aux_loss \
 --amp
 ```
+or
+```python
+sh train.sh
+```
 
-If you do not need AMP, just remove this flag.
+If you do not need AMP to accelerate training , just remove this flag.
 
-# Change logs
-- 2020-11-30
-  - add focal loss for classification
+# extend of DETR
 
-- 2020-11-29
-  - integrate MS-Deformable-Attention into DETR architecture
-  - modify transfomer's implementation to be adapted to Deformable-Attention
-  - add image mask to MS-Deformable-Attention
-  - add automatic mixed precision training
-  - use adam for the optimizer
-  - change lr for projection layers
+- 1.backbone
+ - change lr for projection layers
+ - add backbone modifications for returning multi-scale feature maps
 
-- 2020-11-24
-  - add scale embedding
-  - change remove outer loop for scales
-  - add backbone modifications for returning multi-scale feature maps
-  - add test code for using Deformable-Attention module
+- 2.attention
+ - add Multi-scale Deformabe Attention Module
+ - integrate MS-Deformable-Attention into DETR architecture
+ - modify transfomer's implementation to be adapted to Deformable-Attention
+ - add image mask to MS-Deformable-Attention
 
-- 2020-11-22 
-  
-  - add Multi-scale Deformabe Attention Module
+- 3.loss
+ - add focal loss for classification
+
+- 4.optimizer
+ - add adam for the optimizer
+
+- 5.speed up
+ - add AMP
+ - add Prefetch DataLoader
+
+- 6.
