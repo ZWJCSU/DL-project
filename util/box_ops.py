@@ -25,8 +25,8 @@ def box_iou(boxes1, boxes2):
     area1 = box_area(boxes1)
     area2 = box_area(boxes2)
 
-    lt = torch.max(boxes1[:, None, :2], boxes2[:, :2])  # [N,M,2]
-    rb = torch.min(boxes1[:, None, 2:], boxes2[:, 2:])  # [N,M,2]
+    lt = torch.max(boxes1[:, None, :2].float(), boxes2[:, :2].float())  # [N,M,2]
+    rb = torch.min(boxes1[:, None, 2:].float(), boxes2[:, 2:].float())  # [N,M,2]
 
     wh = (rb - lt).clamp(min=0)  # [N,M,2]
     inter = wh[:, :, 0] * wh[:, :, 1]  # [N,M]
@@ -52,8 +52,8 @@ def generalized_box_iou(boxes1, boxes2):
     assert (boxes2[:, 2:] >= boxes2[:, :2]).all()
     iou, union = box_iou(boxes1, boxes2)
 
-    lt = torch.min(boxes1[:, None, :2], boxes2[:, :2])
-    rb = torch.max(boxes1[:, None, 2:], boxes2[:, 2:])
+    lt = torch.min(boxes1[:, None, :2].float(), boxes2[:, :2].float())
+    rb = torch.max(boxes1[:, None, 2:].float(), boxes2[:, 2:].float())
 
     wh = (rb - lt).clamp(min=0)  # [N,M,2]
     area = wh[:, :, 0] * wh[:, :, 1]
