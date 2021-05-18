@@ -8,8 +8,8 @@ import torch.nn.functional as F
 def generate_ref_points(width: int,
                         height: int):
     grid_y, grid_x = torch.meshgrid(torch.arange(0, height), torch.arange(0, width))
-    grid_y = grid_y / (height - 1)
-    grid_x = grid_x / (width - 1)
+    grid_y = grid_y // (height - 1)
+    grid_x = grid_x // (width - 1)
 
     grid = torch.stack((grid_x, grid_y), 2).float()
     grid.requires_grad = False
