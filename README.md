@@ -13,7 +13,7 @@ For DETR stuffs, etc. data preparation, evaluation, and others , please refer to
 
 # Training
 
-## The training is on the machine with 8 v100 GPU, the computing source is supported by OPPO shanghai institue, it will takes 6 days training 300 epochs from scratch
+## The training is on the machine with 8 v100 GPU,  it will takes 6 days training 300 epochs from scratch
 
 Below is the training script for DDP training.
 ```shell script
