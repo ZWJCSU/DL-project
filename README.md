@@ -5,7 +5,7 @@ DL project
 This an implementation of Deformable-DETR. 
 reference Codes are based on [DETR](https://github.com/facebookresearch/detr) project.
 [Deformable attention](https://github.com/Windaway/Deformable-Attention-for-Deformable-DETR/blob/main/DFMAtt.py)
-[DETR finetune notebook](https://github.com/woctezuma/finetune-detr)
+
 # Preparation
 
 For DETR stuffs, etc. data preparation, evaluation, and others , please refer to 
